@@ -16,7 +16,7 @@ public class InsertionSort {
 		System.out.println("The Sorted List is:");
 		for(int i=0;i<5;i++)
 		{
-			utility.insertionsortWords(words);
+			Utility.insertionsortWords(words);
 			System.out.println(words[i]);
 		}
 	}

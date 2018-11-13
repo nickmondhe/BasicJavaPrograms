@@ -37,7 +37,6 @@ public class StopWatch {
 		}
 		else
 			System.out.println("To start the stopwatch you should have pressed 0 only");
-
 	}
 
 }

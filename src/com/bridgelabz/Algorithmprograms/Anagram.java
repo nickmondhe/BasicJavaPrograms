@@ -14,5 +14,4 @@ public class Anagram {
         str2 = utility.inputString();
         utility.checkAnagram(str1,str2);
 	}
-
 }

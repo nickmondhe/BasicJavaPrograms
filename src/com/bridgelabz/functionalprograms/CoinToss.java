@@ -2,8 +2,8 @@ package com.bridgelabz.functionalprograms;
 
 import java.util.Random;
 
-public class CoinToss 
-{
+public class CoinToss {
+	
 	private enum Coin{Heads, Tails};
 	Random randomNum = new Random();
 	private int result;

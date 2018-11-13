@@ -2,7 +2,7 @@ package com.bridgelabz.functionalprograms;
 
 import com.bridgelabz.utility.Utility;
 
-public class FlipCoin{
+public class Flipcoin{
 		public static void main(String[] args) 
 		{
 			CoinToss test = new CoinToss();

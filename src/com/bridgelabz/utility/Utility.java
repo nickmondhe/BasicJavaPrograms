@@ -2,6 +2,7 @@ package com.bridgelabz.utility;
 
 import java.util.Scanner;
 
+
 public class Utility {
 	
 	Scanner scanner = new Scanner(System.in);
@@ -132,7 +133,7 @@ public class Utility {
 		}
 		return null;
 	}
-
+	
 	/**
 	 * This method is used to calculate  the Windchill which is 
 	 * value taken form the user.
@@ -233,14 +234,14 @@ public class Utility {
 	                    break;
 	                }
 	            }
-	            if(not_found == 1)
-	            {
-	                System.out.print("Strings are not Anagram to Each Other");
-	            }
-	            else
-	            {
-	                System.out.print("Strings are Anagram");
-	            }
+	                if(not_found == 1)
+	                {
+	                	System.out.print("Strings are not Anagram to Each Other");
+	                }
+	                else
+	                {
+	                	System.out.print("Strings are Anagram");
+	                }
 	        }
 	        else
 	        {
@@ -278,7 +279,7 @@ public class Utility {
 	 * @param words it given input from user
 	 */
 	
-	public void insertionsortWords(String[] words) {
+	public static void insertionsortWords(String[] words) {
 		int number=words.length;
 		String value;
 		int index;
@@ -307,13 +308,94 @@ public class Utility {
             words[index] = value;
         }
 	}
+	
+	/**
+	 * Function is used to merge the elements and separated
+	 * into two halves
+	 * 
+	 * @param array integer taken a array number from the user
+	 * @param First integer the number is first element form array
+	 * @param mid integer is the middle value of array
+	 * @param  Last integer the number is last element from array
+	 */
+	public void merge(int array[], int First, int mid, int last) 
+    { 
+         
+        int n1 = mid - First + 1; 
+        int n2 = last - mid; 
+        int L[] = new int [n1]; 
+        int R[] = new int [n2]; 
+        for (int i=0; i<n1; ++i) 
+            L[i] = array[First + i]; 
+        for (int j=0; j<n2; ++j) 
+            R[j] = array[mid + 1+ j]; 
 
+        int i = 0, j = 0;         
+        int k = First; 
+        while (i < n1 && j < n2) 
+        { 
+            if (L[i] <= R[j]) 
+            { 
+                array[k] = L[i]; 
+                i++; 
+            } 
+            else
+            { 
+                array[k] = R[j]; 
+                j++; 
+            } 
+            k++; 
+        } 
+        while (i < n1) 
+        { 
+            array[k] = L[i]; 
+            i++; 
+            k++; 
+        } 
+        while (j < n2) 
+        { 
+            array[k] = R[j]; 
+            j++; 
+            k++; 
+        } 
+    } 
+	
+	/**
+	 * Function is used to sort the number which is provided
+	 * by the user
+	 * 
+	 * @param array taken as a input from user
+	 * @param First integer the number is first element form array
+	 * @param Last integer the number is last element from array
+	 */
+	public void sort(int array[], int First, int last) 
+    { 
+        if (First < last) 
+        { 
+            int mid = (First+last)/2; 
+            sort(array, First, mid); 
+            sort(array , mid+1, last); 
+            merge(array, First, mid, last); 
+        } 
+    } 
+	
+	/**
+	 * Function is used to display the array 
+	 * @param array integer taken a array number from the user
+	 */
+	public static void printArray(int array[]) 
+    { 
+        int number = array.length; 
+        for (int i=0; i<number; ++i) 
+            System.out.print(array[i] + " "); 
+        System.out.println(); 
+    } 
+	
 	/**
 	 * This function is used to sort the number by using bubbleSort Algorithm
 	 * 
 	 * @param num integer array provided the value through user
 	 */
-	
 	public void bubbleSort(int[] num) {
 		int n=num.length;
 		for(int i=0;i<n-1;i++)
@@ -460,8 +542,6 @@ public class Utility {
 		// System.out.println("The Monthly Payment is : "+payment);
 		 return payment;
 	}
-
-	
 	/**
 	 * Function is used to convert decimal to binary
 	 * 
@@ -501,5 +581,35 @@ public class Utility {
 			s=s+0;
 		}
 		return s;
+	}
+
+	/**
+	 * Function is used to find the day of week in calendar
+	 * 
+	 * @param month integer is the month of the calendar
+	 * @param day integer is the day of the calendar
+	 * @param year integer is the year of the calendar
+	 * @return output is the day of week 
+	 */
+	
+	public int dayofWeek(int month,int day,int year) {
+		
+		  int y0 = year - (14 - month) / 12;
+	      int x = y0 + y0/4 - y0/100 + y0/400;
+	      int m0 = month + 12 * ((14 - month) / 12) - 2;
+	      int d0 = (day + x + (31*m0)/12) % 7;
+	      return d0;
+	}
+
+	/**
+	 * Function is used to swap two nibbles 
+	 * 
+	 * @param decimal integer the number is provided by the user
+	 * @return output which are represented as a binary
+	 */
+	public static int swapNibbles(int decimal) {
+		
+		return ((decimal & 0x0F) << 4 | (decimal & 0xF0) >> 4); 
 	}	
+	
 }
